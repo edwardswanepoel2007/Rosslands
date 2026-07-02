@@ -1,0 +1,5 @@
+// Farm Map
+
+function loadMap(){
+
+}
