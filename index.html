@@ -1,55 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rosslands Farm Manager</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rosslands Farm Manager</title>
+
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<header class="header">
-  <h1>🌿 Rosslands</h1>
-  <p>Farm Manager</p>
+<header>
+    <h1>🌿 Rosslands</h1>
+    <p>Farm Manager</p>
 </header>
+
+<nav class="bottom-nav">
+    <button onclick="showPage('home')">🏠 Home</button>
+    <button onclick="showPage('camps')">🌿 Camps</button>
+    <button onclick="showPage('animals')">🦌 Animals</button>
+    <button onclick="showPage('move')">🔄 Move</button>
+    <button onclick="showPage('map')">🗺️ Map</button>
+</nav>
 
 <main>
 
-<div class="card">
+<section id="home" class="page">
+
 <h2>Dashboard</h2>
 
-<p>Welcome to Rosslands Farm Manager.</p>
-
-<p>This is Version 0.1.</p>
-
+<div class="card">
+<h3>Total Camps</h3>
+<p id="campCount">0</p>
 </div>
 
 <div class="card">
-
-<h2>Farm Summary</h2>
-
-<p>Total Camps: <strong>0</strong></p>
-
-<p>Total Animals: <strong>0</strong></p>
-
+<h3>Total Animals</h3>
+<p id="animalCount">0</p>
 </div>
 
+<div class="card">
+<h3>Total Species</h3>
+<p id="speciesCount">0</p>
+</div>
+
+</section>
+
+<section id="camps" class="page hidden">
+
+<h2>Camps</h2>
+
+<button id="addCampBtn">➕ Add Camp</button>
+
+<ul id="campList"></ul>
+
+</section>
+
+<section id="animals" class="page hidden">
+
+<h2>Animals</h2>
+
+<p>This page is coming in Version 0.3</p>
+
+</section>
+
+<section id="move" class="page hidden">
+
+<h2>Move Animals</h2>
+
+<p>This page is coming in Version 0.4</p>
+
+</section>
+
+<section id="map" class="page hidden">
+
+<h2>Farm Map</h2>
+
+<p>Interactive map coming soon.</p>
+
+</section>
+
 </main>
-
-<nav class="bottom-nav">
-
-<button>🏠<br>Home</button>
-
-<button>🌿<br>Camps</button>
-
-<button>🦌<br>Animals</button>
-
-<button>🔄<br>Move</button>
-
-<button>🗺️<br>Map</button>
-
-</nav>
 
 <script src="app.js"></script>
 
