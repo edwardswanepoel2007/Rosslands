@@ -1,63 +1,102 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    background:#f3f5f2;
+    color:#222;
 }
 
-body {
-  background: #f4f7f2;
-  color: #222;
-  padding-bottom: 80px;
+header{
+    background:#2f6b2f;
+    color:white;
+    text-align:center;
+    padding:25px;
 }
 
-.header {
-  background: #2d6a4f;
-  color: white;
-  text-align: center;
-  padding: 25px;
+header h1{
+    margin:0;
+    font-size:32px;
 }
 
-.header h1 {
-  font-size: 32px;
+header p{
+    margin-top:8px;
+    opacity:.9;
 }
 
-.header p {
-  opacity: 0.9;
+main{
+    padding:20px;
+    padding-bottom:100px;
 }
 
-main {
-  padding: 20px;
+.card{
+    background:white;
+    border-radius:18px;
+    padding:20px;
+    margin-bottom:18px;
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
 }
 
-.card {
-  background: white;
-  border-radius: 16px;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+.card h3{
+    margin-top:0;
 }
 
-.card h2 {
-  margin-bottom: 10px;
-  color: #2d6a4f;
+.card p{
+    font-size:34px;
+    font-weight:bold;
+    color:#2f6b2f;
 }
 
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: white;
-  display: flex;
-  justify-content: space-around;
-  padding: 12px 0;
-  border-top: 1px solid #ddd;
+button{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:14px;
+    background:#2f6b2f;
+    color:white;
+    font-size:18px;
+    margin-bottom:15px;
 }
 
-.bottom-nav button {
-  border: none;
-  background: none;
-  font-size: 15px;
-  color: #2d6a4f;
+button:hover{
+    opacity:.9;
+}
+
+.bottom-nav{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    display:flex;
+    background:white;
+    border-top:1px solid #ddd;
+}
+
+.bottom-nav button{
+    flex:1;
+    margin:0;
+    border-radius:0;
+    background:white;
+    color:#2f6b2f;
+    font-size:15px;
+    padding:15px 5px;
+}
+
+.bottom-nav button:hover{
+    background:#eef5ee;
+}
+
+.hidden{
+    display:none;
+}
+
+ul{
+    list-style:none;
+    padding:0;
+}
+
+li{
+    background:white;
+    padding:18px;
+    margin-bottom:12px;
+    border-radius:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,.06);
 }
