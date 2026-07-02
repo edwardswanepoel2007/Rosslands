@@ -9,10 +9,16 @@ if (!farm) {
     };
 }
 
-function saveFarm() {
-    localStorage.setItem("rosslandsFarm", JSON.stringify(farm));
+function saveFarm(){
+
+    localStorage.setItem("rosslandsFarm",JSON.stringify(farm));
+
     updateDashboard();
+
     renderCamps();
+
+    renderAnimals();
+
 }
 
 function updateDashboard() {
@@ -104,11 +110,65 @@ document.addEventListener("DOMContentLoaded", () => {
                 name: name,
                 notes: notes
             });
+function renderAnimals(){
 
-            saveFarm();
-        });
+    const list = document.getElementById("animalList");
+
+    list.innerHTML = "";
+
+    farm.animals.forEach((animal,index)=>{
+
+        const li = document.createElement("li");
+
+        li.innerHTML = `
+        <strong>${animal.species}</strong><br>
+        Quantity: ${animal.quantity}<br>
+        Camp: ${animal.camp}
+
+        <br><br>
+
+        <button onclick="deleteAnimal(${index})">🗑 Delete</button>
+        `;
+
+        list.appendChild(li);
+
+    });
+
+}
+
+document.getElementById("addAnimalBtn").addEventListener("click",()=>{
+
+    if(farm.camps.length===0){
+        alert("Create a camp first!");
+        return;
     }
 
-    updateDashboard();
-    renderCamps();
+    const species = prompt("Animal species");
+
+    if(!species) return;
+
+    const quantity = Number(prompt("Quantity"));
+
+    const camp = prompt("Camp name");
+
+    farm.animals.push({
+        species,
+        quantity,
+        camp
+    });
+
+    saveFarm();
+
 });
+
+function deleteAnimal(index){
+
+    if(confirm("Delete animal?")){
+
+        farm.animals.splice(index,1);
+
+        saveFarm();
+
+    }
+
+}
