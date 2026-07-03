@@ -49,7 +49,20 @@ function addAnimal() {
 
     const quantity = Number(prompt("Quantity"));
 
-    const camp = prompt("Camp name");
+    const campNames = farm.camps.map(c => c.name).join("\n");
+
+const camp = prompt(
+    "Choose one of these camps:\n\n" + campNames
+);
+
+if (!camp) return;
+
+const exists = farm.camps.some(c => c.name === camp);
+
+if (!exists) {
+    alert("That camp does not exist.");
+    return;
+}
 
     farm.animals.push({
         species,
