@@ -16,4 +16,5 @@ function saveFarm() {
 
     if (typeof renderCamps === "function") renderCamps();
     if (typeof renderAnimals === "function") renderAnimals();
+    if (typeof loadCampDropdown === "function") loadCampDropdown();
 }
