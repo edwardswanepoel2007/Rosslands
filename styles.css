@@ -100,3 +100,19 @@ li{
     border-radius:15px;
     box-shadow:0 4px 12px rgba(0,0,0,.06);
 }
+.camp-card{
+    background:white;
+    border-radius:20px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.camp-card h2{
+    margin-top:0;
+    color:#2f6b2f;
+}
+
+.camp-card button{
+    margin-top:10px;
+}
