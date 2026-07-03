@@ -1,5 +1,26 @@
 // Animal Management
 
+function loadCampDropdown() {
+
+    const select = document.getElementById("animalCamp");
+
+    if (!select) return;
+
+    select.innerHTML = "";
+
+    farm.camps.forEach(camp => {
+
+        const option = document.createElement("option");
+
+        option.value = camp.name;
+        option.textContent = camp.name;
+
+        select.appendChild(option);
+
+    });
+
+}
+
 function renderAnimals() {
 
     const list = document.getElementById("animalList");
@@ -12,22 +33,18 @@ function renderAnimals() {
 
         const li = document.createElement("li");
 
-        const title = document.createElement("h3");
-        title.textContent = animal.species;
-
-        const qty = document.createElement("p");
-        qty.textContent = "Quantity: " + animal.quantity;
-
-        const camp = document.createElement("p");
-        camp.textContent = "Camp: " + animal.camp;
+        li.innerHTML = `
+            <h3>${animal.species}</h3>
+            <p><strong>Quantity:</strong> ${animal.quantity}</p>
+            <p><strong>Camp:</strong> ${animal.camp}</p>
+        `;
 
         const deleteBtn = document.createElement("button");
+
         deleteBtn.textContent = "🗑 Delete";
+
         deleteBtn.onclick = () => deleteAnimal(index);
 
-        li.appendChild(title);
-        li.appendChild(qty);
-        li.appendChild(camp);
         li.appendChild(deleteBtn);
 
         list.appendChild(li);
@@ -38,37 +55,30 @@ function renderAnimals() {
 
 function addAnimal() {
 
-    if (farm.camps.length === 0) {
-        alert("Create a camp first!");
+    const species = document.getElementById("animalSpecies").value.trim();
+
+    const quantity = Number(document.getElementById("animalQuantity").value);
+
+    const camp = document.getElementById("animalCamp").value;
+
+    if (!species) {
+        alert("Enter a species.");
         return;
     }
 
-    const species = prompt("Animal species");
-
-    if (!species) return;
-
-    const quantity = Number(prompt("Quantity"));
-
-    const campNames = farm.camps.map(c => c.name).join("\n");
-
-const camp = prompt(
-    "Choose one of these camps:\n\n" + campNames
-);
-
-if (!camp) return;
-
-const exists = farm.camps.some(c => c.name === camp);
-
-if (!exists) {
-    alert("That camp does not exist.");
-    return;
-}
+    if (quantity <= 0) {
+        alert("Enter a valid quantity.");
+        return;
+    }
 
     farm.animals.push({
         species,
         quantity,
         camp
     });
+
+    document.getElementById("animalSpecies").value = "";
+    document.getElementById("animalQuantity").value = "";
 
     saveFarm();
 
@@ -85,6 +95,8 @@ function deleteAnimal(index) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    loadCampDropdown();
 
     const btn = document.getElementById("addAnimalBtn");
 
