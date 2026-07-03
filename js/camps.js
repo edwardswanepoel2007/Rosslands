@@ -49,7 +49,7 @@ function addCamp() {
         name,
         notes
     });
-
+addActivity("🌿 Added camp: " + name);
     saveFarm();
 
 }
