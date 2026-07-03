@@ -76,6 +76,14 @@ function addAnimal() {
         quantity,
         camp
     });
+    addActivity(
+    "🦌 Added " +
+    quantity +
+    " " +
+    species +
+    " to " +
+    camp
+);
 
     document.getElementById("animalSpecies").value = "";
     document.getElementById("animalQuantity").value = "";
@@ -88,7 +96,11 @@ function deleteAnimal(index) {
 
     if (!confirm("Delete animal?")) return;
 
-    farm.animals.splice(index, 1);
+  addActivity(
+    "🗑 Deleted " +
+    farm.animals[index].species
+);
+      farm.animals.splice(index, 1);
 
     saveFarm();
 
