@@ -61,6 +61,7 @@ function renameCamp(index) {
     if (!newName) return;
 
     farm.camps[index].name = newName;
+    addActivity("✏️ Renamed camp to " + newName);
 
     saveFarm();
 
@@ -69,6 +70,7 @@ function renameCamp(index) {
 function deleteCamp(index) {
 
     if (!confirm("Delete this camp?")) return;
+    
 addActivity("🗑 Deleted camp: " + farm.camps[index].name);
     farm.camps.splice(index, 1);
 
